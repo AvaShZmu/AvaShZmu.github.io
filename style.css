@@ -1,0 +1,29 @@
+.center-image {
+display: flex;
+justify-content: center;
+}
+
+.center-item {
+display: flex;
+justify-content: center;
+}
+
+img {
+height:auto;
+width:300px;
+border-radius:10px;
+}
+
+button {
+padding: 10px 20px;
+font-size: 16px;
+background-color: dodgerblue;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: deepskyblue;
+}
