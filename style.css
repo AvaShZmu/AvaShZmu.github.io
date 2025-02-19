@@ -1,8 +1,3 @@
-.center-image {
-display: flex;
-justify-content: center;
-}
-
 .center-item {
 display: flex;
 justify-content: center;
@@ -26,4 +21,33 @@ cursor: pointer;
 
 button:hover {
 background-color: deepskyblue;
+}
+
+.left-image-container {
+  width: 300px;
+  height: 200px;
+  overflow: hidden; /* Hide overflowing parts */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+.center-image-container{
+  width: 300px;
+  height: 200px;
+  margin: auto;
+  overflow: hidden; /* Hide overflowing parts */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+#drag_img {
+  right: 10px;
+  bottom: -300px;
+  width: 200px;
+  height: auto;
+}
+
+.hidden {
+  display: none;
 }

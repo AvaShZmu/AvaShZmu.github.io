@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mommy Frieren</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 	<h1 style="text-align:center;"><b>I LOVE MOMMY FRIEREN</b></h1>
-	<div class="center-image">
+	<div class="center-image-container">
 		<img id="image" src="frieren1.jpg" alt="mommy">
 	</div>
 	<div class="center-item">
@@ -17,7 +18,59 @@
 
 	<!--Frieren img on click-->
 	<h2 id="clickcaption">Frieren eating</h2>
-	<img id="clickentity" src="burgor.jpg" alt="Eating">
+	<div class="left-image-container">
+		<img id="clickentity" src="burgor.jpg" alt="Eating">
+	</div>
 	<script src="script.js"></script>
+	<hr>
+	<h1 style="text-align: center" id="killcount"><b>KILL COUNT: 0</b></h1>
+	<img id="drag_img" src="frierenface.jpg" style="position: absolute" draggable="false">
+	<p>Go feed the mimic over here, it seems to be hungry.</p>
+	<img src="mimic.jpg" id="mimic">
+	<script>
+		const drag_img = document.getElementById("drag_img");
+		const mimic_img = document.getElementById("mimic")
+		const killcount = document.getElementById("killcount")
+		let isDragging = false;
+		let offsetX, offsetY;
+		let counter = 0
+
+
+		drag_img.addEventListener("mousedown", function(ev){
+			isDragging = true;
+			offsetX = ev.clientX - drag_img.offsetLeft;
+    		offsetY = ev.clientY - drag_img.offsetTop;
+		})
+
+		document.addEventListener("mousemove", ev => {
+			if (!isDragging) return;
+			drag_img.style.left = ev.clientX - offsetX + "px";
+			drag_img.style.top = ev.clientY - offsetY + "px";
+		});
+
+		document.addEventListener("mouseup", (ev) => {
+			if (!isDragging) return;
+			const rect = mimic_img.getBoundingClientRect()
+			if (
+					ev.clientX >= rect.left && ev.clientX <= rect.right &&
+  					ev.clientY >= rect.top && ev.clientY <= rect.bottom
+			){
+				mimic_img.src = 'mimic_eat.jpg'
+				drag_img.classList.add("hidden"); // Hide image
+				setTimeout(() => {
+					mimic_img.src = 'mimic.jpg';
+					drag_img.classList.remove('hidden');
+					drag_img.style.left = '';
+					drag_img.style.top = '';
+					drag_img.style.right = 10 + 'px';
+					drag_img.style.bottom = -300 + 'px';
+					counter++;
+					killcount.innerText = 'KILL COUNT: ' + counter;
+				}, 3000)
+
+			}
+			isDragging = false;
+		});
+	</script>
 </body>
 </html>
