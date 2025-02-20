@@ -43,7 +43,7 @@ background-color: deepskyblue;
 
 #drag_img {
   right: 10vw;
-  bottom: -80vw;
+  top: 80vh;
   width: 30vw;
   height: auto;
 }
