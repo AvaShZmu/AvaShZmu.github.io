@@ -42,10 +42,15 @@ background-color: deepskyblue;
 }
 
 #drag_img {
-  right: 10px;
-  bottom: -300px;
-  width: 200px;
+  right: 10vw;
+  bottom: -80vw;
+  width: 30vw;
   height: auto;
+}
+
+#mimic {
+  width: 40vw;
+  height: auto
 }
 
 .hidden {
