@@ -8,11 +8,12 @@ let counter = 0
 
 function startDrag(ev) {
     isDragging = true;
-        const clientX = ev.type.startsWith("touch") ? ev.touches[0].clientX : ev.clientX;
-        const clientY = ev.type.startsWith("touch") ? ev.touches[0].clientY : ev.clientY;
-        offsetX = clientX - drag_img.offsetLeft;
-        offsetY = clientY - drag_img.offsetTop;
-        ev.preventDefault();
+    const clientX = ev.type.startsWith("touch") ? ev.touches[0].clientX : ev.clientX;
+    const clientY = ev.type.startsWith("touch") ? ev.touches[0].clientY : ev.clientY;
+    offsetX = clientX - drag_img.offsetLeft;
+    offsetY = clientY - drag_img.offsetTop;
+    ev.preventDefault();
+    drag_img.src = 'images/confused.jpg';
 }
 
 function dragMove(ev)   {
@@ -31,10 +32,11 @@ function stopDrag(ev) {
         const rect = mimic_img.getBoundingClientRect();
         if (clientX >= rect.left && clientX <= rect.right &&
             clientY >= rect.top && clientY <= rect.bottom) {
-            mimic_img.src = 'mimic_eat.jpg';
+            mimic_img.src = 'images/frierenmimic.gif';
             drag_img.classList.add("hidden"); // Hide image
             setTimeout(() => {
-                mimic_img.src = 'mimic.jpg';
+                mimic_img.src = 'images/mimic.jpg';
+                drag_img.src = 'images/frierensleep.gif';
                 drag_img.classList.remove('hidden');
                 drag_img.style.left = '';
                 drag_img.style.top = '';
@@ -43,6 +45,9 @@ function stopDrag(ev) {
                 counter++;
                 killcount.innerText = 'KILL COUNT: ' + counter;
             }, 3000);
+        }
+        else {
+            drag_img.src = 'images/frierensleep.gif';
         }
         isDragging = false;
 }

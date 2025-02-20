@@ -1,13 +1,13 @@
 const images = [
-	"frieren1.jpg",
-	"frieren2.jpg",
-	"frieren3.jpg",
-	"frieren4.jpg",
-	"frieren5.jpg"
+	"images/frieren1.jpg",
+	"images/frieren2.jpg",
+	"images/frieren3.jpg",
+	"images/frieren4.jpg",
+	"images/frieren5.jpg"
 ]
 
-const kill = "frierenkillyourself.jpg"
-const burgor = "burgor.jpg"
+const kill = "images/frierenkillyourself.jpg"
+const burgor = "images/burgor.jpg"
 
 let index = 0;
 
